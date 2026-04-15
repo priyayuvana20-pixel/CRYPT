@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Message Authentication</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:50px;
+}
+
+.box{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+width:450px;
+margin:auto;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#22c55e;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.hash{
+word-break:break-all;
+background:#020617;
+padding:10px;
+border-radius:5px;
+}
+
+.title{
+font-size:28px;
+margin-bottom:5px;
+}
+
+.subtitle{
+font-size:20px;
+color:#38bdf8;
+margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1 class="title">Message Authentication</h1>
+<h2 class="subtitle">Sender</h2>
+
+<form method="POST">
+
+<input type="text" name="message" placeholder="Enter Message" required>
+
+<input type="text" name="key" placeholder="Enter Secret Key" required>
+
+<br>
+
+<button type="submit">Generate MAC</button>
+
+</form>
+
+{% if hash_value %}
+
+<h3>SHA256</h3>
+<p class="hash">{{hash_value}}</p>
+
+<h3>HMAC</h3>
+<p class="hash">{{mac}}</p>
+
+<br>
+
+<a href="/receiver">
+<button>Go to Receiver</button>
+</a>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
