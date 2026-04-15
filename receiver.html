@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Receiver</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#020617;
+color:white;
+text-align:center;
+padding:50px;
+}
+
+.box{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+width:450px;
+margin:auto;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#3b82f6;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.hash{
+word-break:break-all;
+background:#0f172a;
+padding:10px;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Receiver Page</h2>
+
+<form action="/verify" method="POST">
+
+<input type="text" name="received" placeholder="Enter Received Message" required>
+
+<br>
+
+<button type="submit">Verify Message</button>
+
+</form>
+
+{% if hash_value %}
+
+<h3>SHA256</h3>
+<p class="hash">{{hash_value}}</p>
+
+<h3>HMAC</h3>
+<p class="hash">{{mac}}</p>
+
+<h2 style="color:{{color}}">{{result}}</h2>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
